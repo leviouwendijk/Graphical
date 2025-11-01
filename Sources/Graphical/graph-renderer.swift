@@ -18,14 +18,14 @@ public enum GraphRenderer {
 
         for point in graph.points {
             let barLen = Int(point.value * scale)
-            let color: plate.ANSI.Color? = colorize ? pickColor(for: point.value, max: maxVal) : nil
+            let color: plate.ANSIColor? = colorize ? pickColor(for: point.value, max: maxVal) : nil
             let bar = ANSIBar.render(barLen, color: color)
             let valStr = showValues ? String(format: "%.0f", point.value) : ""
             print("\(point.label.ansi(.dim)): \(bar) \(valStr)")
         }
     }
 
-    private static func pickColor(for value: Double, max: Double) -> plate.ANSI.Color {
+    private static func pickColor(for value: Double, max: Double) -> plate.ANSIColor {
         let ratio = value / max
         switch ratio {
         case 0.8...1.0: return .green

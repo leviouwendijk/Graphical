@@ -16,7 +16,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/leviouwendijk/plate.git",
+            url: "https://github.com/leviouwendijk/Terminal.git",
             branch: "master"
         ),
     ],
@@ -26,7 +26,7 @@ let package = Package(
         .target(
             name: "Graphical",
             dependencies: [
-                .product(name: "plate", package: "plate"),
+                .product(name: "Terminal", package: "Terminal"),
             ],
         ),
         .testTarget(

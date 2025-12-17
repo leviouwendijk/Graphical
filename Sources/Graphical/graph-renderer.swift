@@ -1,5 +1,5 @@
 import Foundation
-import plate
+import Terminal
 
 public enum GraphRenderer {
     public static func render(
@@ -18,14 +18,14 @@ public enum GraphRenderer {
 
         for point in graph.points {
             let barLen = Int(point.value * scale)
-            let color: plate.ANSIColor? = colorize ? pickColor(for: point.value, max: maxVal) : nil
+            let color: ANSIColor? = colorize ? pickColor(for: point.value, max: maxVal) : nil
             let bar = ANSIBar.render(barLen, color: color)
             let valStr = showValues ? String(format: "%.0f", point.value) : ""
             print("\(point.label.ansi(.dim)): \(bar) \(valStr)")
         }
     }
 
-    private static func pickColor(for value: Double, max: Double) -> plate.ANSIColor {
+    private static func pickColor(for value: Double, max: Double) -> ANSIColor {
         let ratio = value / max
         switch ratio {
         case 0.8...1.0: return .green

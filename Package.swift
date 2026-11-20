@@ -29,9 +29,5 @@ let package = Package(
                 .product(name: "Terminal", package: "Terminal"),
             ],
         ),
-        .testTarget(
-            name: "GraphicalTests",
-            dependencies: ["Graphical"]
-        ),
     ]
 )
